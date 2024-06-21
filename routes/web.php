@@ -4,6 +4,8 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PesananController;
+use App\Models\Pesanan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +34,8 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::delete('/keranjang', [keranjangController::class, 'destroy']);
+
+    Route::post('/checkout', [PesananController::class, 'store']);
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -48,6 +52,8 @@ Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/keranjang', [keranjangController::class, 'index']);
 Route::post('/keranjang', [keranjangController::class, 'store']);
+
+Route::get('/pesanan', [PesananController::class, 'index']);
 
 Route::get('/viewproduk', function () {
     return view('pages/user/produk/viewProduk');

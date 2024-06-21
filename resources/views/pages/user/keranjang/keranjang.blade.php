@@ -58,19 +58,28 @@
                                 <b>Ringkasan belanja</b>
                             </div>
                             <div class="card-body">
-                                <div class="row ml-2 mr-2">
-                                    <table border="0" class="w-100">
-                                        <tr>
-                                            <th>
-                                                <small class="mt-5">Total :</small>
-                                            </th>
-                                            <th>
-                                                <h4 id="totalPrice" class="float-right text-warning mt-2">Rp0</h4>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                    <button type="button" href="" class="btn btn-box text-light w-100 text-center btn-keranjang mt-4" onclick="window.location.href = '/keranjang';"><b>Checkout</b></button>
-                                </div>
+                                <form action="/checkout" method="POST">
+                                    @csrf
+                                    <div id="inputan">
+                                        <input type="hidden" id="id-produk" name="id_produk">
+                                        <input type="hidden" id="qty" name="qty">
+                                        <input type="hidden" id="total-harga" name="total_harga">
+                                        <input type="hidden" id="id-customers" name="id_customers" value="{{ Auth::guard('customer')->user()->id }}">
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <table border="0" class="w-100">
+                                            <tr>
+                                                <th>
+                                                    <small class="mt-5">Total :</small>
+                                                </th>
+                                                <th>
+                                                    <h4 id="totalPrice" class="float-right text-warning mt-2">Rp0</h4>
+                                                </th>
+                                            </tr>
+                                        </table>
+                                        <button type="submit" href="" class="btn btn-box text-light w-100 text-center btn-keranjang mt-4" onclick="window.location.href = '/keranjang';"><b>Checkout</b></button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -95,8 +104,10 @@
 <script>
     $(document).ready(function() {
         // Add the 'highlight' class to the 'my-element' div
-        $('#navwishlist').addClass('active');
+        $('#navkeranjang').addClass('active');
         $('#navhome').removeClass('active');
+        $('#navproduk').removeClass('active');
+        $('#navpesanan').removeClass('active');
     });
 
     $('#hapusItem').on('show.bs.modal', function(event) {
@@ -128,13 +139,22 @@
     function updateTotal() {
         let total = 0;
         const checkboxes = document.querySelectorAll('.product-checkbox');
+        let selectedProducts = [];
+        let selectedQuantities = [];
+        
         checkboxes.forEach((checkbox, index) => {
             if (checkbox.checked) {
                 const quantity = document.querySelectorAll('.product-quantity')[index].value;
                 total += parseFloat(checkbox.value) * parseInt(quantity);
+                selectedProducts.push(checkbox.id.replace('checkbox', ''));
+                selectedQuantities.push(quantity);
             }
         });
+
         document.getElementById('totalPrice').innerText = `Rp${total}`;
+        document.getElementById('total-harga').value = total;
+        document.getElementById('id-produk').value = selectedProducts.join(',');
+        document.getElementById('qty').value = selectedQuantities.join(',');
     }
 </script>
 @endpush

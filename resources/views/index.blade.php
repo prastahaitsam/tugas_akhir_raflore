@@ -384,8 +384,9 @@
     $(document).ready(function() {
         // Add the 'highlight' class to the 'my-element' div
         $('#navhome').addClass('active');
-        $('#navwishlist').removeClass('active');
+        $('#navkeranjang').removeClass('active');
         $('#navproduk').removeClass('active');
+        $('#navpesanan').removeClass('active');
 
         $(document).on('click', '.viewproduk', function() {
             var button = $(this);
