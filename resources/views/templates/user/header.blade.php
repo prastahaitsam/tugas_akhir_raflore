@@ -58,12 +58,12 @@
                                 Produk
                             </a>
                         </li>
-                        <li class="nav-item" id="navwishlist">
+                        <li class="nav-item" id="navkeranjang">
                             <a class="nav-link" href="keranjang">
                                 Keranjang
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="navpesanan">
                             <a class="nav-link" href="pesanan">
                                 Pesanan
                             </a>

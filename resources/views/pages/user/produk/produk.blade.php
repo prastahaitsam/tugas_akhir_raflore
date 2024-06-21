@@ -115,7 +115,8 @@
         // Add the 'highlight' class to the 'my-element' div
         $('#navproduk').addClass('active');
         $('#navhome').removeClass('active');
-        $('#navwishlist').removeClass('active');
+        $('#navkeranjang').removeClass('active');
+        $('#navpesanan').removeClass('active');
 
         $(document).on('click', '.viewproduk', function() {
             var button = $(this);
