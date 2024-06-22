@@ -13,16 +13,16 @@
                                         Raflore Gift Shop
                                     </h1>
                                     <p>
-                                        Raflore merupakan usaha dibidang jasa pembuatan gift, wedding stationary, dan dekorasi.
+                                        Raflore merupakan usaha dibidang jasa pembuatan gift (buket) area Kediri.
                                     </p>
-                                    <a href="">
+                                    <a href="https://api.whatsapp.com/send?phone=085718394722" target="_blank">
                                         Hubungi Kami
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/logo-1.png" alt="" />
+                                    <img src="assets/user/images/rf.png" alt="icon raflore" />
                                 </div>
                             </div>
                         </div>
@@ -39,14 +39,14 @@
                                     <p>
                                         Kami menyediakan Bucket Gift terbaik untuk diberikan kepada orang spesial sebagai kado ulang tahun, wisuda, pernikahan dan lain lain.
                                     </p>
-                                    <a href="">
-                                        Pesan Sekarang
+                                    <a class="nav-link" href="produk">
+                                        Find More!
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/bucket-1.png" alt="" />
+                                    <img src="assets/user/images/produk1.png" alt="showcase" />
                                 </div>
                             </div>
                         </div>
@@ -58,19 +58,19 @@
                             <div class="col-md-7">
                                 <div class="detail-box">
                                     <h1>
-                                        Dekorasi
+                                        Bucket Gift
                                     </h1>
                                     <p>
-                                        Kami dapat membuat momen pernikahan anda semakin ... dengan dekorasi kami.
+                                        Kami menyediakan Bucket Gift terbaik untuk diberikan kepada orang spesial sebagai kado ulang tahun, wisuda, pernikahan dan lain lain.
                                     </p>
-                                    <a href="">
-                                        Pesan Sekarang
+                                    <a class="nav-link" href="produk">
+                                        Find More!
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/dekor-2.png" alt="" />
+                                    <img src="assets/user/images/produk2.png" alt="showcase" />
                                 </div>
                             </div>
                         </div>
