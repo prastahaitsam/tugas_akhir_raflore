@@ -50,6 +50,7 @@
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Data</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="/data-produk">Produk</a></li>
+                            <li><a href="/data-customer">Customer</a></li>
                             <li><a href="/user">Horizontal</a></li>
                         </ul>
                     </li>

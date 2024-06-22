@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
@@ -24,6 +25,10 @@ Route::middleware(['auth:user'])->group(function () {
     Route::post('/data-produk', [ProdukController::class, 'store']);
     Route::patch('/data-produk', [ProdukController::class, 'update']);
     Route::delete('/data-produk', [ProdukController::class, 'destroy']);
+    Route::get('/data-customer', [CustomerController::class, 'dataCustomer']);
+    Route::post('/data-customer', [CustomerController::class, 'store']);
+    Route::patch('/data-customer', [CustomerController::class, 'update']);
+    Route::delete('/data-customer', [CustomerController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', function () {
         return view('pages/admin/home');
