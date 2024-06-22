@@ -209,7 +209,7 @@
                         <h6 class="d-flex justify-content-center">Follow Us</h6>
                         <div class="social_box mt-5">
                            
-                            <a href="">
+                            <a href="https://www.tiktok.com/@raflore.id?_t=8nODbylEhJ1&_r=1" target="_blank">
                                
                                 <p>
                                     <svg height="35px" width="35px" viewBox="0 0 32 32" fill="none"
