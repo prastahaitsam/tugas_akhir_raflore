@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/rf.png" alt="icon raflore" />
+                                    <img src="assets/user/images/rf.jpg" alt="icon raflore" />
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/produk1.png" alt="showcase" />
+                                    <img class="shadow-lg" src="assets/user/images/produk1.1.jpg" alt="showcase" />
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-md-5 ">
                                 <div class="img-box">
-                                    <img src="assets/user/images/produk2.png" alt="showcase" />
+                                    <img class="shadow-lg" src="assets/user/images/produk2.2.jpg" alt="showcase" />
                                 </div>
                             </div>
                         </div>

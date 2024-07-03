@@ -12,14 +12,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data = Customer::orderBy('created_at', 'desc')->get();
-
-        return view('pages/user/customer/customer', ['data' => $data]);
-    }
-
-    public function dataCustomer()
-    {
-        $data = Customer::orderBy('created_at', 'desc')->get();
+        $data = Customer::all();
 
         return view('pages/admin/customer/customer', ['data' => $data]);
     }
@@ -103,12 +96,12 @@ class CustomerController extends Controller
         if ($validate->fails()) {
             return response()->json($validate->errors()->toJson());
         }
-        $create = Customer::where('id', $request->id)->update([
+        $update = Customer::where('id', $request->id)->update([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => $request->get('password')
         ]);
-        if ($create) {
+        if ($update) {
             return redirect('/data-customer')->with('success', 'Edit data customer sukses.');
         } else {
             return redirect('/data-customer')->with('failed', 'Edit data customer gagal.');

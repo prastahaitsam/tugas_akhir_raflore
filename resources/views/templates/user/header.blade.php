@@ -11,6 +11,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
     <link rel="shortcut icon" href="assets/user/images/favicon.jpg" type="image/x-icon">
 
     <title>
@@ -30,6 +31,9 @@
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="assets/user/fontawesome/css/all.css">
+
+    <!-- midtrans -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-fREZRkfT6qEMF0YP"></script>
 
     @stack('style')
 </head>
@@ -79,8 +83,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="home">Halaman Admin</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <a class="dropdown-item" href="/history-transaksi">History Transaksi</a>
                                 <div class="dropdown-divider"></div>
                                 <form action="logout" method="post">
                                     @csrf
@@ -99,8 +103,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="home">Halaman Admin</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <a class="dropdown-item" href="/history-transaksi">History Transaksi</a>
                                 <div class="dropdown-divider"></div>
                                 <form action="logout" method="post">
                                     @csrf
