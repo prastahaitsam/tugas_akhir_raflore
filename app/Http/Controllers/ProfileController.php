@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
-use App\Models\Produk;
+use Illuminate\Support\Facades\Auth;
 
-class IndexController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Produk::latest()->take(5)->get();
+        $idUser = Auth::guard('customer')->user()->id;
 
-        return view('index', ['data' => $data]);
+        $customer = Customer::find($idUser);
+
+        return view('pages/user/profile/profile', compact('customer'));
     }
 
     /**

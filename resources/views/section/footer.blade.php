@@ -1,53 +1,3 @@
-@extends('templates/user/header')
-
-@section('content')
-</div>
-<!-- end hero area -->
-
-<!-- shop section -->
-<section class="shop_section">
-    <div class="container">
-        <div class="row mb-4">
-            @foreach($data as $row)
-            <div class="">
-                <div class="box" style="border-radius: 3%; width: 220px; margin-right:6px; margin-left:6px;">
-                    <a type="button" class="viewproduk" data-id="{{ $row->id_produk }}" data-gambar="{{ $row->gambar }}" data-namaproduk="{{ $row->nama_produk }}" data-harga="{{ $row->harga }}" data-deskripsi="{{ $row->deskripsi }}">
-                        <div class="img-box">
-                            <img src="storage/produk-images/{{ $row->gambar }}" alt="">
-                        </div>
-                        <div class="detail-box mt-4" style="height: 50px;">
-                            <h6>{{ $row->nama_produk }}</h6>
-                        </div>
-                        <div class="detail-box">
-                            <div></div>
-                            <div class="float-end">
-                                <h6>
-                                    <span>Rp.{{ $row->harga }}</span>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="detail-box">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <div class="float-right">
-                                <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- end shop section -->
-
-<!-- info section -->
-{{-- footer section  --}}
 <section class="info_section  layout_padding2-top">
     <div class="info_container ">
         <div class="container">
@@ -63,9 +13,9 @@
                 <div class="social_container col-md-6 col-lg-6">
                     <h6 class="d-flex justify-content-center">Follow Us</h6>
                     <div class="social_box mt-5">
-                       
+                        
                         <a href="https://www.tiktok.com/@raflore.id?_t=8nODbylEhJ1&_r=1" target="_blank">
-                           
+                            
                             <p>
                                 <svg height="35px" width="35px" viewBox="0 0 32 32" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -182,36 +132,3 @@
     <!-- footer section -->
 
 </section>
-{{-- footer section  --}}
-<!-- end info section -->
-
-@endsection
-@push('script')
-<script>
-    $(document).ready(function() {
-        // Add the 'highlight' class to the 'my-element' div
-        $('#navproduk').addClass('active');
-        $('#navhome').removeClass('active');
-        $('#navkeranjang').removeClass('active');
-        $('#navpesanan').removeClass('active');
-
-        $(document).on('click', '.viewproduk', function() {
-            var button = $(this);
-            var id = button.data('id');
-            var gambar = button.data('gambar');
-            var namaproduk = button.data('namaproduk');
-            var harga = button.data('harga');
-            var deskripsi = button.data('deskripsi');
-
-            //console.log(namaproduk);
-            localStorage.setItem('idProduk', id);
-            localStorage.setItem('gambar', gambar);
-            localStorage.setItem('namaproduk', namaproduk);
-            localStorage.setItem('harga', harga);
-            localStorage.setItem('deskripsi', deskripsi);
-
-            window.location.href = '/viewproduk';
-        });
-    });
-</script>
-@endpush

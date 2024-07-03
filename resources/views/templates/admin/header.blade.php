@@ -46,24 +46,38 @@
                     <li class="nav-item">
                         <a href="/home" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                     </li>
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Data</span></a>
-                        <ul class="pcoded-submenu">
-                            <li><a href="/data-produk">Produk</a></li>
-                            <li><a href="/data-customer">Customer</a></li>
-                            <li><a href="/user">Horizontal</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Transaksi</label>
-                    </li>
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Page layouts</span></a>
-                        <ul class="pcoded-submenu">
-                            <li><a href="layout-vertical.html" target="_blank">Vertical</a></li>
-                            <li><a href="layout-horizontal.html" target="_blank">Horizontal</a></li>
-                        </ul>
-                    </li>
+                    <?php if (auth()->user()->level == "produksi") { ?>
+                        <li class="nav-item pcoded-menu-caption">
+                            <label>Pesanan</label>
+                        </li>
+                        <li class="nav-item pcoded-hasmenu">
+                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Transaksi</span></a>
+                            <ul class="pcoded-submenu">
+                                <li><a href="/data-pesanan">Pesanan</a></li>
+                            </ul>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item pcoded-hasmenu">
+                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Data</span></a>
+                            <ul class="pcoded-submenu">
+                                <li><a href="/data-produk">Produk</a></li>
+                                <li><a href="/data-customer">Customer</a></li>
+                                <?php if (auth()->user()->level == "owner") { ?>
+                                    <li><a href="/data-user">User</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class="nav-item pcoded-menu-caption">
+                            <label>Transaksi</label>
+                        </li>
+                        <li class="nav-item pcoded-hasmenu">
+                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Transaksi</span></a>
+                            <ul class="pcoded-submenu">
+                                <li><a href="/data-pesanan">Pesanan</a></li>
+                                <li><a href="layout-horizontal.html" target="_blank">Horizontal</a></li>
+                            </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

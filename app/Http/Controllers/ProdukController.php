@@ -140,4 +140,10 @@ class ProdukController extends Controller
             return redirect('/data-produk')->with('failed', 'Hapus data produk gagal.');
         }
     }
+
+    public function viewproduk(){
+        $data = Produk::orderBy('created_at', 'desc')->get();
+
+        return view('pages/user/produk/viewProduk', ['data' => $data]);
+    }
 }

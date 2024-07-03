@@ -4,51 +4,57 @@
 <!-- end hero area -->
 
 <!-- info section -->
-<section class="shop_section">
+<section class="shop_section mb-4">
     <div class="container mt-5">
         <h4 class="mb-4">Keranjang</h4>
         <div class="row">
             <div style="width: 75%;">
-                @foreach($products as $row)
-                <div class="card mb-2">
-                    <div class="form-check ml-2 mt-2">
-                        <input class="form-check-input product-checkbox" type="checkbox" id="checkbox{{ $row->id_produk }}" value="{{ $row->harga }}" aria-label="..." onchange="updateTotal()">
-                        <label for="checkbox{{ $row->id_produk }}">Pilih</label>
+                @if($products->isEmpty())
+                    <div class="alert alert-light text-center" role="alert">
+                        Keranjang kosong!
                     </div>
-                    <div class=" row g-0">
-                        <div class="col-md-2">
-                            <img id="gambar" src="storage/produk-images/{{ $row->gambar }}" class="img-fluid rounded-start rounded" style="margin: 10px;" alt="...">
+                @else
+                    @foreach($products as $row)
+                    <div class="card mb-2">
+                        <div class="form-check ml-2 mt-2">
+                            <input class="form-check-input product-checkbox" type="checkbox" id="checkbox{{ $row->id_produk }}" value="{{ $row->harga }}" aria-label="..." onchange="updateTotal()">
+                            <label for="checkbox{{ $row->id_produk }}">Pilih</label>
                         </div>
-                        <div class="col">
-                            <div class="card-body">
-                                <table border="0" class="w-100">
-                                    <tr>
-                                        <td class="w-50">
-                                            <h3 class="card-title" id="namaProduk">{{ $row->nama_produk }}</h3>
-                                            <small>{{ $row->deskripsi }}</small>
-                                            <h5 class="mt-4 text-warning">Rp{{ $row->harga }}</h5>
-                                        </td>
-                                        <th class="w-25">
-                                            <div class="input-group quantity-selector">
-                                                <button type="button" class="btn btn-icon btn-light mr-2 text-light update-quantity-btn" style="background-color: #F7B935;" data-id="{{ $row->id_produk }}" data-step="-1">
-                                                    <span class="visually-hidden"><b>-</b></span>
+                        <div class=" row g-0">
+                            <div class="col-md-2">
+                                <img id="gambar" src="storage/produk-images/{{ $row->gambar }}" class="img-fluid rounded-start rounded" style="margin: 10px;" alt="...">
+                            </div>
+                            <div class="col">
+                                <div class="card-body">
+                                    <table border="0" class="w-100">
+                                        <tr>
+                                            <td class="w-50">
+                                                <h3 class="card-title" id="namaProduk">{{ $row->nama_produk }}</h3>
+                                                <small>{{ $row->deskripsi }}</small>
+                                                <h5 class="mt-4 text-warning">Rp{{ $row->harga }}</h5>
+                                            </td>
+                                            <th class="w-25">
+                                                <div class="input-group quantity-selector">
+                                                    <button type="button" class="btn btn-icon btn-light mr-2 text-light update-quantity-btn" style="background-color: #F7B935;" data-id="{{ $row->id_produk }}" data-step="-1">
+                                                        <span class="visually-hidden"><b>-</b></span>
+                                                    </button>
+                                                    <input type="number" id="inputQuantitySelector{{ $row->id_produk }}" class="form-control rounded text-center product-quantity" aria-live="polite" name="quantity" title="quantity" value="{{ $row->qty }}" min="1" max="100" step="1" data-id="{{ $row->id_produk }}" aria-label="Quantity selector" onchange="updateTotal()">
+                                                    <button type="button" class="btn btn-icon btn-light ml-2 text-light update-quantity-btn" style="background-color: #F7B935;" data-id="{{ $row->id_produk }}" data-step="1">
+                                                        <span class="visually-hidden"><b>+</b></span>
+                                                    </button>
+                                                </div>
+                                                <button type="button" class="btn btn-icon ml-2 text-light mt-4 float-right" data-toggle="modal" data-target="#hapusItem" data-idproduk="{{ $row->id_produk }}" data-namaproduk="{{ $row->nama_produk }}">
+                                                    <span class="visually-hidden text-danger"><i class="fa-regular fa-trash-can"></i></span>
                                                 </button>
-                                                <input type="number" id="inputQuantitySelector{{ $row->id_produk }}" class="form-control rounded text-center product-quantity" aria-live="polite" name="quantity" title="quantity" value="{{ $row->qty }}" min="1" max="100" step="1" data-id="{{ $row->id_produk }}" aria-label="Quantity selector" onchange="updateTotal()">
-                                                <button type="button" class="btn btn-icon btn-light ml-2 text-light update-quantity-btn" style="background-color: #F7B935;" data-id="{{ $row->id_produk }}" data-step="1">
-                                                    <span class="visually-hidden"><b>+</b></span>
-                                                </button>
-                                            </div>
-                                            <button type="button" class="btn btn-icon ml-2 text-light mt-4 float-right" data-toggle="modal" data-target="#hapusItem" data-idproduk="{{ $row->id_produk }}" data-namaproduk="{{ $row->nama_produk }}">
-                                                <span class="visually-hidden text-danger"><i class="fa-regular fa-trash-can"></i></span>
-                                            </button>
-                                        </th>
-                                    </tr>
-                                </table>
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
             <div style="width: 22%;" class="ml-4">
                 <div class="card mb-3">
@@ -77,7 +83,7 @@
                                                 </th>
                                             </tr>
                                         </table>
-                                        <button type="submit" href="" class="btn btn-box text-light w-100 text-center btn-keranjang mt-4" onclick="window.location.href = '/keranjang';"><b>Checkout</b></button>
+                                        <button type="submit" href="" class="btn btn-box text-light w-100 text-center btn-keranjang mt-4" onclick="window.location.href = '/keranjang';" id="pay-button"><b>Checkout</b></button>
                                     </div>
                                 </form>
                             </div>
@@ -88,6 +94,8 @@
         </div>
     </div>
 </section>
+
+@include ('section/footer')
 
 <style>
     /* Remove arrows in Chrome, Safari, Edge, and Opera */
